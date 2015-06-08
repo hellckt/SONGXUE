@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "theme_base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% import "_macros.html" as macros %}
 
 {% block title %}松学网 - 已报名课程{% endblock %}
 
-{% block page_content %}
-    <div class="page-header">
+{% block content_main %}
+    <div class="page-header content-main-padding">
         <h3>已报名的课程</h3>
     </div>
     {% set show_course_detail = False %} {# 用于courses是否显示详细 #}

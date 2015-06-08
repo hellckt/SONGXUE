@@ -630,3 +630,16 @@ p.position {
 	border: 1px solid #fff; 
 	color: #fff;  
 }
+
+.content-main-padding{
+    padding-left: 40px;
+}
+#home{
+    padding-top: 20px;
+}
+#templatemo_main{
+    border-radius: 1%;
+}
+.post-content-fix{
+    margin-left: 100px;
+}

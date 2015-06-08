@@ -57,14 +57,14 @@
             </p>
         </div>
     </div>
-    <h3 id="courses">{{ user.username }} 发布的<b>课程</b></h3>
+    <h3 id="courses" class="content-main-padding">{{ user.username }} 发布的<b>课程</b></h3>
     {% include '_courses.html' %}
     {% if pagination %}
         <div class="pagination">
             {{ macros.pagination_widget(pagination, 'main.user', fragment='#courses', username=user.username) }}
         </div>
     {% endif %}
-    <h3 id="posts">{{ user.username }} 的<b>推文</b></h3>
+    <h3 id="posts" class="content-main-padding">{{ user.username }} 的<b>推文</b></h3>
     {% include '_posts.html' %}
     {% if post_pagination %}
         <div class="pagination">

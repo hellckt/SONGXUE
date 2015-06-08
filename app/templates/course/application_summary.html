@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "theme_base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% import "_macros.html" as macros %}
 
 {% block title %}松学网 - 报名汇总{% endblock %}
 
-{% block page_content %}
-    <div class="page-header">
+{% block content_main %}
+    <div class="page-header content-main-padding">
         <h3>报名汇总</h3>
     </div>
     {% include "course/_application.html" %}

@@ -10,7 +10,7 @@
             <div class="post-author">
                 <a href="{{ url_for('main.user', username=course.publisher.username) }}">{{ course.publisher.username }}</a>
             </div>
-            <div class="post-content">
+            <div class="post-content post-content-fix">
                 <div class="post-date">{{ moment(course.timestamp).fromNow() }}</div>
                 <div class="post-body">
                     {% if show_course_detail %}
