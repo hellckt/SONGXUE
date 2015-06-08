@@ -1,0 +1,35 @@
+# python 缓存文件
+*.pyc
+
+# SQLite 数据库
+*.sqlite
+
+# 虚拟环境
+venv
+
+# pycharm
+.idea
+
+# 应用配置文件
+.env
+
+# 包
+dist
+build
+eggs
+parts
+var
+sdist
+develop-eggs
+.installed.cfg
+lib64
+__pycache__
+
+# 安装日志
+pip-log.txt
+
+# 单元测试／覆盖率报告
+.coverage
+.tox
+nosetests.xml
+tmp

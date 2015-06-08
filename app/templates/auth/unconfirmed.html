@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}松学网 - 验证邮箱{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>
+        你好， {{ current_user.username }}!
+    </h1>
+    <h3>你还没有到邮箱验证你的帐号</h3>
+    <p>
+    	在进入我们网站时，你需要确认你的帐号。
+	检查一下你的收件箱，应该会收到一封带有验证网址的邮件。
+    </p>
+    <p>
+        需要另外的验证邮件?
+        <a href="{{ url_for('auth.resend_confirmation') }}">点击这儿</a>
+    </p>
+</div>
+{% endblock %}

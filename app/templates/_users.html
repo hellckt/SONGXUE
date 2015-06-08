@@ -1,0 +1,25 @@
+<!-- TODO-cott: 样式修改 -->
+<ul class="comments">
+    {% for user in users %}
+        <li class="comment">
+            <div class="comment-thumbnail">
+                <a href="{{ url_for('.user', username=user.username) }}">
+                    <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=40) }}">
+                </a>
+            </div>
+            <div class="comment-content">
+                <div class="comment-date">最后登录时间：{{ moment(user.last_seen).fromNow() }}</div>
+                <div class="comment-author"><a
+                        href="{{ url_for('.user', username=user.username) }}">{{ user.username }}</a></div>
+                <div class="comment-body">
+                </div>
+                {% if moderate %}
+                    <br>
+                    <!-- TODO-cott: 完善用户管理具体内容，应该是用户申请，才出现在这儿 -->
+                    <a class="btn btn-default btn-xs"
+                       href="{{ url_for('.moderate_user_enable', id=user.id, page=page) }}">通过</a>
+                {% endif %}
+            </div>
+        </li>
+    {% endfor %}
+</ul>

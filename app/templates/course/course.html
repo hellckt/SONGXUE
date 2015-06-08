@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}松学网 - 课程{% endblock %}
+
+{% block page_content %}
+    {% set show_course_detail = True %} {# 用于courses是否显示详细 #}
+    {% include '_courses.html' %}
+    <h4 id="comments">评论</h4>
+    {% if current_user.can(Permission.COMMENT) %}
+        <div class="comment-form">
+            {{ wtf.quick_form(form) }}
+        </div>
+    {% endif %}
+    {% include '_comments.html' %}
+    {% if pagination %}
+        <div class="pagination">
+            {{ macros.pagination_widget(pagination, 'course.detail', fragment='#comments', id=courses[0].id) }}
+        </div>
+    {% endif %}
+    {% include "modal/_application.html" %}
+{% endblock %}

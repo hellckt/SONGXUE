@@ -1,0 +1,32 @@
+<ul class="posts">
+    {% for apl in apls %}
+        <li class="post">
+            <div class="post-thumbnail">
+                <a href="{{ url_for('main.user', username=apl.apply_course.publisher.username) }}">
+                    <img class="img-rounded profile-thumbnail" src="{{ apl.apply_course.publisher.gravatar(size=40) }}">
+                </a>
+            </div>
+            <div class="post-author">
+                <a href="{{ url_for('main.user', username=apl.apply_course.publisher.username) }}">{{ apl.apply_course.publisher.username }}</a>
+            </div>
+            <div class="post-content">
+                <div class="post-date">{{ moment(apl.timestamp).fromNow() }}</div>
+                <div class="post-body">
+                    <dl>
+                        <dt>
+                            <a href="{{ url_for('course.detail', id = apl.apply_course.id) }}" target="_blank">
+                                {{ apl.apply_course.title }}
+                            </a>
+                        </dt>
+                        <dd>
+                            <p>{{ apl.apply_course.brief }}</p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="post-footer">
+
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}松学网 - 报名汇总{% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h3>报名汇总</h3>
+    </div>
+    {% include "course/_application.html" %}
+    {% if pagination %}
+        <div class="pagination">
+            {{ macros.pagination_widget(pagination, 'course.application_summary')}}
+        </div>
+    {% endif %}
+{% endblock %}

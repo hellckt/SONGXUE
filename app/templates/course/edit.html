@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}松学网 - 修改课程{% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>修改课程</h1>
+    </div>
+    {% if form %}
+        <div class="col-lg-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    {% endif %}
+{% endblock %}

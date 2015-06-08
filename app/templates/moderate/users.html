@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}松学网 - 用户审核{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>用户审核</h1>
+</div>
+{% set moderate = True %}
+{% include '_users.html' %}
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.moderate_users') }}
+</div>
+{% endif %}
+{% endblock %}

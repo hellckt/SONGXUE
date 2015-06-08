@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}松学网 - {{ user.username }}{% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+
+        <div class="profile-header">
+            <h1>{{ user.username }}</h1>
+            {% if user.name or user.location %}
+                <p>
+                    {% if user.name %}{{ user.name }}<br>{% endif %}
+                    {% if user.location %}
+                        现居地 <a href="http://maps.google.com/?q={{ user.location }}">{{ user.location }}</a><br>
+                    {% endif %}
+                </p>
+            {% endif %}
+            {% if current_user.is_administrator() %}
+                <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+            {% endif %}
+            {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+            <p>注册时间 {{ moment(user.member_since).format('LLLL') }}。 最后活跃时间 {{ moment(user.last_seen).fromNow() }}。</p>
+
+            <p>{{ user.posts.count() }} posts。 {{ user.comments.count() }} 评论。</p>
+
+            <p>
+                {% if current_user.can(Permission.FOLLOW) and user != current_user %}
+                    {% if not current_user.is_following(user) %}
+                        <a href="{{ url_for('.follow', username=user.username) }}" class="btn btn-primary">关注</a>
+                    {% else %}
+                        <a href="{{ url_for('.unfollow', username=user.username) }}" class="btn btn-default">取消关注</a>
+                    {% endif %}
+                {% endif %}
+                <a href="{{ url_for('.followers', username=user.username) }}">听众： <span
+                        class="badge">{{ user.followers.count() - 1 }}</span></a>
+                <a href="{{ url_for('.followed_by', username=user.username) }}">关注： <span
+                        class="badge">{{ user.followed.count() - 1 }}</span></a>
+                {% if current_user.is_authenticated() and user != current_user and user.is_following(current_user) %}
+                    | <span class="label label-default">关注了你</span>
+                {% endif %}
+            </p>
+
+            <p>
+                {% if user == current_user %}
+                    <a class="btn btn-default" href="{{ url_for('main.edit_profile') }}">编辑资料</a>
+                {% endif %}
+                {% if current_user.is_administrator() %}
+                    <a class="btn btn-danger" href="{{ url_for('main.edit_profile_admin', id=user.id) }}">编辑资料 [管理员]</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <h3 id="courses">{{ user.username }} 发布的<b>课程</b></h3>
+    {% include '_courses.html' %}
+    {% if pagination %}
+        <div class="pagination">
+            {{ macros.pagination_widget(pagination, 'main.user', fragment='#courses', username=user.username) }}
+        </div>
+    {% endif %}
+    <h3 id="posts">{{ user.username }} 的<b>推文</b></h3>
+    {% include '_posts.html' %}
+    {% if post_pagination %}
+        <div class="pagination">
+            {{ macros.pagination_widget(post_pagination, 'main.user', fragment='#posts', username=user.username) }}
+        </div>
+    {% endif %}
+{% endblock %}

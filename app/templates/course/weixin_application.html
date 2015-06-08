@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}松学网 - 课程报名{% endblock %}
+
+{% block navbar %} {% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h3>课程报名</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">{{ wtf.quick_form(form) }}</div>
+        <div class="col-lg-4"></div>
+    </div>
+    <div class="page-footer c7">
+        <h4>© Copyright 2015, 曾科特.</h4>
+    </div>
+{% endblock %}

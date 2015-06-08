@@ -1,0 +1,7 @@
+<p>亲爱的 {{ user.username }},</p>
+<p>欢迎来到 <b>松学网</b>!</p>
+<p>请点击该链接以确认你的账户:</p>
+<p><a href="{{ url_for('auth.confirm', token=token, _external=True) }}">{{ url_for('auth.confirm', token=token, _external=True) }}</a></p>
+<p>真诚的问候,</p>
+<p>松学网 团队</p>
+<p><small>提示: 回复该邮箱将不会的到任何答复！</small></p>

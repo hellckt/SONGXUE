@@ -1,0 +1,94 @@
+<!-- TODO-cott: 修改样式 -->
+<ul class="posts">
+    {% for course in courses %}
+        <li class="post">
+            <div class="post-thumbnail">
+                <a href="{{ url_for('main.user', username=course.publisher.username) }}">
+                    <img class="img-rounded profile-thumbnail" src="{{ course.publisher.gravatar(size=40) }}">
+                </a>
+            </div>
+            <div class="post-author">
+                <a href="{{ url_for('main.user', username=course.publisher.username) }}">{{ course.publisher.username }}</a>
+            </div>
+            <div class="post-content">
+                <div class="post-date">{{ moment(course.timestamp).fromNow() }}</div>
+                <div class="post-body">
+                    {% if show_course_detail %}
+                        <div class="mb15">
+                            <h3>{{ course.title }}</h3>
+                        </div>
+                        <dl>
+                            <dt class="c7">课程名</dt>
+                            <dd>{{ course.name }}</dd>
+                        </dl>
+                        <dl>
+                            <dt class="c7">价格</dt>
+                            <dd>{{ course.price }}元</dd>
+                        </dl>
+                        <dl>
+                            <dt class="c7">培训机构</dt>
+                            <dd>{{ course.company }}</dd>
+                        </dl>
+                        <dl>
+                            <dt class="c7">联系人</dt>
+                            <dd>{{ course.contact }}</dd>
+                        </dl>
+                        <dl>
+                            <dt class="c7">联系电话</dt>
+                            <dd>{{ course.telephone }}</dd>
+                        </dl>
+                        <dl>
+                            <dt class="c7">详细描述</dt>
+                            <dd>{{ course.detailed }}</dd>
+                        </dl>
+                    {% else %}
+                        <div class="mb15">
+                            <a href="{{ url_for('course.detail', id=course.id) }}" target="_blank">
+                                {{ course.title }}
+                            </a>
+                        </div>
+                        <span>
+                            {{ course.brief }}
+                        </span>
+                    {% endif %}
+                </div>
+                <div class="post-footer">
+                    {% if current_user == course.publisher %}
+                        <a href="{{ url_for('course.edit', id=course.id) }}">
+                            <span class="label label-primary">编辑</span>
+                        </a>
+                    {% elif current_user.is_administrator() %}
+                        <a href="{{ url_for('course.edit', id=course.id) }}">
+                            <span class="label label-danger">编辑 [管理员]</span>
+                        </a>
+                    {% endif %}
+                    {% if show_course_detail %}
+                        {% if current_user.is_anonymous() %}
+                            <a class="label label-info">
+                                登录之后报名
+                            </a>
+                        {% else %}
+                            {% if not current_user.is_applied_by(course) %}
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                                        data-target="#myModal">
+                                    马上报名
+                                </button>
+                            {% else %}
+                                <button class="btn btn-primary btn-lg">
+                                    已报名
+                                </button>
+                            {% endif %}
+                        {% endif %}
+                    {% else %}
+                        <a href="{{ url_for('course.detail', id=course.id) }}">
+                            <span class="label label-default">详情页</span>
+                        </a>
+                        <a href="{{ url_for('course.detail', id=course.id) }}#comments">
+                            <span class="label label-primary">{{ course.comments.count() }} 评论</span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

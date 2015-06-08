@@ -1,0 +1,6 @@
+<p>亲爱的 {{ user.username }},</p>
+<p>请访问下面的链接地址验证你的新邮箱:</p>
+<p><a href="{{ url_for('auth.change_email', token=token, _external=True) }}">{{ url_for('auth.change_email', token=token, _external=True) }}</p>
+<p>真诚的问候,</p>
+<p>松学网 团队</p>
+<p><small>提示：回复该邮箱将不会的到任何答复。</small></p>
