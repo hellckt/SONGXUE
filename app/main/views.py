@@ -36,7 +36,7 @@ def server_shutdown():
 
 @main.route('/homepage', methods = ['GET', 'POST'])
 def home():
-    return render_template('homepage.html')
+    return render_template('theme_base.html')
 
 
 @main.route('/', methods = ['GET', 'POST'])

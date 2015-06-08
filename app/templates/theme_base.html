@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="{{ url_for('static', filename="css/templatemo_style.css") }}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block styles %}
@@ -53,7 +54,8 @@
                                 {% endif %}
                                 <li><a href="{{ url_for('course.applications') }}">我的报名</a></li>
                                 {% if current_user.is_authenticated() %}
-                                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">个人资料</a></li>
+                                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">个人资料</a>
+                                    </li>
                                 {% endif %}
                                 <li><a href="{{ url_for('auth.change_password') }}">修改密码</a></li>
                                 <li><a href="{{ url_for('auth.change_email_request') }}">修改邮箱</a></li>
@@ -70,16 +72,62 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div id="home">
         {% for message in get_flashed_messages() %}
             <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 {{ message }}
             </div>
         {% endfor %}
+        {% block page_content %}
+            <div id="templatemo_main">
+                {% block content_main %}
+                {% endblock %}
+            </div>
+        {% endblock %}
+        {% block page_footer %}
+            <div id="templatemo_bottom_wrapper">
+                <div id="templatemo_bottom">
+                    <div class="col one_third">
+                        <h4><span></span>博客</h4>
 
-        {% block page_content %}{% endblock %}
-    </div>
+                        <div class="bottom_box">
+                            <ul class="footer_list">
+                                并没有什么博客
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col one_third">
+                        <h4><span></span>更新公告</h4>
+
+                        <div class="bottom_box">
+                            <ul class="twitter_post">
+                                <li>并没有什么更新</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col one_third no_margin_right">
+                        <h4><span></span>关于我们</h4>
+
+                        <div class="bottom_box">
+                            <p>并没有什么</p>
+                        </div>
+                    </div>
+                    <div class="cleaner"></div>
+                </div>
+                <!-- END of tempatemo_bottom -->
+            </div>
+            <!-- END of tempatemo_bottom_wrapper -->
+            <div id="templatemo_footer_wrapper">
+                <div id="templatemo_footer">
+                    Copyright © 2015 松学网 |
+                    由 <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a> 设计
+                    曾科特 修改
+                </div>
+                <!-- END of templatemo_footer_wrapper -->
+            </div>
+            <!-- END of templatemo_footer -->
+        {% endblock %}
 {% endblock %}
 
 {% block scripts %}

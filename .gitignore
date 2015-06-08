@@ -33,3 +33,5 @@ pip-log.txt
 .tox
 nosetests.xml
 tmp
+.directory
+migrations

@@ -1,9 +1,10 @@
-{% extends "base.html" %}
+{#{% extends "base.html" %}#}
+{% extends "theme_base.html" %}
 {% import "_macros.html" as macros %}
 
 {% block title %}松学网 - {{ user.username }}{% endblock %}
 
-{% block page_content %}
+{% block content_main %}
     <div class="page-header">
         <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
 
@@ -21,16 +22,19 @@
                 <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
             {% endif %}
             {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
-            <p>注册时间 {{ moment(user.member_since).format('LLLL') }}。 最后活跃时间 {{ moment(user.last_seen).fromNow() }}。</p>
+            <p>注册时间 {{ moment(user.member_since).format('LLLL') }}。
+                最后活跃时间 {{ moment(user.last_seen).fromNow() }}。</p>
 
             <p>{{ user.posts.count() }} posts。 {{ user.comments.count() }} 评论。</p>
 
             <p>
                 {% if current_user.can(Permission.FOLLOW) and user != current_user %}
                     {% if not current_user.is_following(user) %}
-                        <a href="{{ url_for('.follow', username=user.username) }}" class="btn btn-primary">关注</a>
+                        <a href="{{ url_for('.follow', username=user.username) }}"
+                           class="btn btn-primary">关注</a>
                     {% else %}
-                        <a href="{{ url_for('.unfollow', username=user.username) }}" class="btn btn-default">取消关注</a>
+                        <a href="{{ url_for('.unfollow', username=user.username) }}"
+                           class="btn btn-default">取消关注</a>
                     {% endif %}
                 {% endif %}
                 <a href="{{ url_for('.followers', username=user.username) }}">听众： <span
@@ -47,7 +51,8 @@
                     <a class="btn btn-default" href="{{ url_for('main.edit_profile') }}">编辑资料</a>
                 {% endif %}
                 {% if current_user.is_administrator() %}
-                    <a class="btn btn-danger" href="{{ url_for('main.edit_profile_admin', id=user.id) }}">编辑资料 [管理员]</a>
+                    <a class="btn btn-danger" href="{{ url_for('main.edit_profile_admin', id=user.id) }}">编辑资料
+                        [管理员]</a>
                 {% endif %}
             </p>
         </div>
