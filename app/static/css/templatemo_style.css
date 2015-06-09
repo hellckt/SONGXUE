@@ -640,6 +640,6 @@ p.position {
 #templatemo_main{
     border-radius: 1%;
 }
-.post-content-fix{
+div.post-content-fix{
     margin-left: 100px;
 }

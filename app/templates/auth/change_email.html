@@ -1,13 +1,15 @@
-{% extends "base.html" %}
+{% extends "theme_base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}松学网 - 修改Email地址{% endblock %}
 
-{% block page_content %}
-<div class="page-header">
+{% block content_main %}
+<div class="page-header content-main-padding">
     <h1>修改你的Emial地址</h1>
 </div>
-<div class="col-md-4">
+<div class="row">
+<div class="col-md-4 content-main-padding">
     {{ wtf.quick_form(form) }}
 </div>
+    </div>
 {% endblock %}
