@@ -1,12 +1,12 @@
 <ul class="comments">
     {% for comment in comments %}
     <li class="comment">
-        <div class="comment-thumbnail">
+        <div class="comment-thumbnail content-main-padding">
             <a href="{{ url_for('main.user', username=comment.author.username) }}">
                 <img class="img-rounded profile-thumbnail" src="{{ comment.author.gravatar(size=40) }}">
             </a>
         </div>
-        <div class="comment-content">
+        <div class="comment-content content-main-padding">
             <div class="comment-date">{{ moment(comment.timestamp).fromNow() }}</div>
             <div class="comment-author"><a href="{{ url_for('main.user', username=comment.author.username) }}">{{ comment.author.username }}</a></div>
             <div class="comment-body">

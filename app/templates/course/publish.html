@@ -9,8 +9,10 @@
         <h3>发布课程</h3>
     </div>
     {% if form %}
+<div class="row content-main-padding">
         <div class="col-lg-4">
             {{ wtf.quick_form(form) }}
         </div>
+    </div>
     {% endif %}
 {% endblock %}

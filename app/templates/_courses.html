@@ -52,7 +52,7 @@
                         </span>
                     {% endif %}
                 </div>
-                <div class="post-footer">
+                <div class="post-footer content-main-padding">
                     {% if current_user == course.publisher %}
                         <a href="{{ url_for('course.edit', id=course.id) }}">
                             <span class="label label-primary">编辑</span>

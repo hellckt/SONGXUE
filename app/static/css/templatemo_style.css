@@ -643,3 +643,9 @@ p.position {
 div.post-content-fix{
     margin-left: 100px;
 }
+#comments{
+    margin-left: 30px;
+}
+body{
+    font-family:微软雅黑,sans-serif
+}
