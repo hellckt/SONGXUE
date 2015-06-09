@@ -7,7 +7,7 @@
 <!-- TODO-cott: 修改样式 -->
 {% block page_content %}
     {#<div class="page-header">
-            <h1>你好， {% if current_user.is_authenticated() %}{{ current_user.username }}{% else %}陌生人{% endif %}！</h1>
+            <h1>你好， {% if current_user.is_authenticated() %}{{ current_user.username }}{% else %}欢迎访问{% endif %}！</h1>
         </div>
         <div class="post-tabs">
             <ul class="nav nav-tabs">
@@ -37,24 +37,24 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="{{ url_for('static', filename="03.jpg") }}" alt="01.jpg">
+                    <img src="{{ url_for('static', filename="5.jpg") }}" alt="01.jpg">
 
                     <div class="carousel-caption">
-                        <h3>940 x xxx</h3>
+
                     </div>
                 </div>
                 <div class="item">
-                    <img src="{{ url_for('static', filename="03.jpg") }}" alt="02.jpg">
+                    <img src="{{ url_for('static', filename="5.jpg") }}" alt="02.jpg">
 
                     <div class="carousel-caption">
-                        <h3>940 x xxx</h3>
+
                     </div>
                 </div>
                 <div class="item">
-                    <img src="{{ url_for('static', filename="03.jpg") }}" alt="03.jpg">
+                    <img src="{{ url_for('static', filename="5.jpg") }}" alt="03.jpg">
 
                     <div class="carousel-caption">
-                        <h3>940 x xxx</h3>
+
                     </div>
                 </div>
             </div>
@@ -74,74 +74,82 @@
     </div>
     <div id="templatemo_main">
         <div class="col one_third fp_services">
-            <h2>你好， {% if current_user.is_authenticated() %}{{ current_user.username }}{% else %}
-                陌生人{% endif %}！</h2>
-            <img src="{{ url_for('static', filename="images/templatemo_image_04.jpg") }}" alt="图片"
-                 class="image_fl"/>
+            <h2><a href="              ">热门课程 </a></h2>
 
-            <p>
-                <a href="http://www.templatemo.com" target="_parent">Carousel</a>
-                is free css template provided by
-                <a href="http://www.templatemo.com">templatemo.com</a>
-                for your personal or commercial websites. Quisque nec suscipit ipsum. Fusce vitae accumsan
-                massa.
-            </p>
-            <ul class="templatemo_list">
-                <li class="flow">Integer placerat dolor vel</li>
-                <li class="flow nomr">Condimentum vulputate</li>
-                <li class="flow">Itristique non suscipit id</li>
-                <li class="flow nomr"> Donec eget lacus vitae leo</li>
-            </ul>
+            <div class="rp_pp">
+                <img class="icon_size" src="{{ url_for('static', filename="images/ico/21.ico") }}"
+                     alt="Image 01"/>
+                <a href="#">华政计算机二级 ms offic 培训班</a>
+
+                <p>2015-06-07 便学网</p>
+
+                <div class="cleaner"></div>
+            </div>
+            <div class="rp_pp">
+                <img class="icon_size" src="{{ url_for('static', filename="images/ico/21.ico") }}"
+                     alt="Image 02"/>
+                <a href="#">政府免费培训课程</a>
+
+                <p>2015-06-07 松江有心兼职团队</p>
+
+                <div class="cleaner"></div>
+            </div>
+            <div class="rp_pp">
+                <img class="icon_size" src="{{ url_for('static', filename="images/ico/21.ico") }}"
+                     alt="Image 03"/>
+                <a href="#">2016端午魔鬼集训体验营——政英数班</a>
+
+                <p>2015-06-07 北大燕园考研</p>
+
+                <div class="cleaner"></div>
+            </div>
         </div>
         <div class="col one_third fp_services">
-            <h2>最近公告</h2>
+            <h2><a href="             ">最新消息 </a></h2>
 
             <div class="rp_pp">
-                <img src="{{ url_for('static', filename="images/templatemo_image_01.jpg") }}"
+                <img class="icon_size" src="{{ url_for('static', filename="images/ico/22.ico") }}"
                      alt="Image 01"/>
-                <a href="#">Integer venenatis pharetra magna vitae condimentum  ultrices.</a>
+                <a href="#">[讲座]</a>"高数王"来袭,6月15日18:00特邀中国考研高数第一人...<a href="">查看全文</a>
 
-                <p>Feb 27, 2048 - 140 comments</p>
+
+                <p>
+                <p>2015-06-07 北大燕园考研</p>
 
                 <div class="cleaner"></div>
             </div>
             <div class="rp_pp">
-                <img src="{{ url_for('static', filename="images/templatemo_image_02.jpg") }}"
+                <img class="icon_size" src="{{ url_for('static', filename="images/ico/22.ico") }}"
                      alt="Image 02"/>
-                <a href="#">Nulla facilisi. Vestibulum vel odio ac mi feugiat condimentum.</a>
+                 <a href="#">[免费课程]</a>政治,英语高分基础班,可免费试听.主讲人:...<a href="">查看全文</a>
 
-                <p>Feb 21, 2048 - 154 comments</p>
 
+                <p>
+                <p>2015-06-05 跨考考研</p>
                 <div class="cleaner"></div>
             </div>
             <div class="rp_pp">
-                <img src="{{ url_for('static', filename="images/templatemo_image_03.jpg") }}"
+                <img class="icon_size" src="{{ url_for('static', filename="images/ico/22.ico") }}"
                      alt="Image 03"/>
-                <a href="#">Fusce dolor neque, placerat ac erat venenatis eu, venenatis ac leo.</a>
+                 <a href="#">[免费课程]</a>北大燕园精品小班课开课通知时间:6月15日 13:30-20:...<a href="">查看全文</a>
 
-                <p>Feb 15, 2048 - 179 comments</p>
 
+                <p>
+                <p>2015-06-02 北大燕园考研</p>
                 <div class="cleaner"></div>
             </div>
         </div>
         <div class="col one_third no_margin_right fp_services">
-            <h2>Testimonials</h2>
+            <h2><a href="           ">资源共享  </a> </h2>
 
             <div class="testimonial">
-                <p>Nunc vitae purus non augue scelerisque ultricies vitae et velit quis nulla id orci
-                    malesua
-                    tempus
-                    erat.</p>
-                <cite>Rock <a href="#"><span>- CEO, New Company</span></a></cite></div>
+                <p><a href=""> 大学英语四六级词汇汇总  点击下载</a>
+                    </p>
+                <cite>资源上传者: <a href="#"><span>Hellckt</span></a></cite></div>
             <div class="testimonial">
-                <p>Curabitur sed felis urna, quis eleifend magna. Nunc quam mollis sem iaculis sed. Validate
-                    <a
-                            href="http://validator.w3.org/check?uri=referer"
-                            rel="nofollow"><strong>XHTML</strong></a>
-                    &amp; <a
-                            href="http://jigsaw.w3.org/css-validator/check/referer"
-                            rel="nofollow"><strong>CSS</strong></a>.</p>
-                <cite>John <a href="#"><span>- Senior Director, Company</span></a></cite></div>
+                 <p><a href=""> 宫东风考研英语阅读讲解视频  点击下载</a>
+                    </p>
+                <cite>资源上传者: <a href="#"><span>Lying</span></a></cite></div>
         </div>
         <div class="cleaner"></div>
         <!-- END of templatemo_main -->

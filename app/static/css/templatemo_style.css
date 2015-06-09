@@ -441,11 +441,11 @@ p.position {
 }
 
 .testimonial { 
-	padding: 0 0 20px 70px; 
+	padding: 0 0 20px 70px;
 	margin-bottom: 30px; 
 	border-bottom: 1px dotted #ced4dc; 
-	display: block; 
-	background: url(../images/speech_bubble_grey.png) left top no-repeat; 
+	display: block;
+	background: url(../images/speech_bubble_grey.png) left top no-repeat;
 }
 
 #contact_form { 
@@ -651,4 +651,13 @@ body{
 }
 ul.posts{
 margin-left: 30px;
+}
+
+.index_img_size {
+width: 120px;
+height: 120px;
+}
+.icon_size{
+width: 56px;
+height: 56px;
 }
