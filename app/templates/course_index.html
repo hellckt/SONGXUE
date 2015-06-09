@@ -1,0 +1,14 @@
+{% extends "theme_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}松学网 - 课程{% endblock %}
+
+{% block content_main %}
+    {% include '_courses.html' %}
+    {% if pagination %}
+        <div class="pagination">
+            {{ macros.pagination_widget(pagination, '.course_index') }}
+        </div>
+    {% endif %}
+{% endblock %}
