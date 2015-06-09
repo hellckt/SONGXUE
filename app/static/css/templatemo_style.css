@@ -649,3 +649,6 @@ div.post-content-fix{
 body{
     font-family:微软雅黑,sans-serif
 }
+ul.posts{
+margin-left: 30px;
+}
