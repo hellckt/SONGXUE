@@ -18,7 +18,7 @@ if os.path.exists('.env'):
 
 from app import create_app, db
 from app.models import User, Follow, Role, Permission, Post, Comment, Course, Application
-from flask.ext.script import Manager, Shell
+from flask.ext.script import Manager, Shell, Server
 from flask.ext.migrate import Migrate, MigrateCommand
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
@@ -36,6 +36,7 @@ def make_shell_context():
 
 manager.add_command("shell", Shell(make_context = make_shell_context))
 manager.add_command('db', MigrateCommand)
+manager.add_command('runserver', Server('106.185.33.8', port=8888))
 
 
 @manager.command
